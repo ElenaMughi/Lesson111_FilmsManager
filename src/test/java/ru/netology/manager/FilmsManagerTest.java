@@ -70,8 +70,8 @@ class FilmsManagerTest {
     public void shouldGetFilmsFilmsInRepoMoreLimitFilmsWithNull() {
         FilmsManager Repo = new FilmsManager();
         shouldAddFilm(Repo);
-        FilmsInfo[] actual = Repo.getLastFilms(8);
-        FilmsInfo[] expected = {seventh, sixth, fifth, forth, third, second, first, seventh};
+        FilmsInfo[] actual = Repo.getLastFilms(7);
+        FilmsInfo[] expected = {seventh, sixth, fifth, forth, third, second, first};
         assertArrayEquals(expected, actual);
     }
 }
