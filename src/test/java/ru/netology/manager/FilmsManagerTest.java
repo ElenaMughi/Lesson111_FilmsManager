@@ -50,27 +50,27 @@ class FilmsManagerTest {
 
     @Test
     public void shouldGetFilmsInRepoLessLimitFilms() {
-        FilmsManager Repo = new FilmsManager();
+        FilmsManager Repo = new FilmsManager(8);
         shouldAddFilm(Repo);
-        FilmsInfo[] actual = Repo.getLastFilms(8);
+        FilmsInfo[] actual = Repo.getLastFilms();
         FilmsInfo[] expected = {seventh, sixth, fifth, forth, third, second, first};
         assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldGetFilmsFilmsInRepoMoreLimitFilms() {
-        FilmsManager Repo = new FilmsManager();
+        FilmsManager Repo = new FilmsManager(8);
         shouldAddFilm(Repo);
         shouldAddFilm(Repo);
-        FilmsInfo[] actual = Repo.getLastFilms(8);
+        FilmsInfo[] actual = Repo.getLastFilms();
         FilmsInfo[] expected = {seventh, sixth, fifth, forth, third, second, first, seventh};
         assertArrayEquals(expected, actual);
     }
 
     public void shouldGetFilmsFilmsInRepoMoreLimitFilmsWithNull() {
-        FilmsManager Repo = new FilmsManager();
+        FilmsManager Repo = new FilmsManager(7);
         shouldAddFilm(Repo);
-        FilmsInfo[] actual = Repo.getLastFilms(7);
+        FilmsInfo[] actual = Repo.getLastFilms();
         FilmsInfo[] expected = {seventh, sixth, fifth, forth, third, second, first};
         assertArrayEquals(expected, actual);
     }
