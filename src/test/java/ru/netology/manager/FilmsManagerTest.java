@@ -1,6 +1,5 @@
 package ru.netology.manager;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.FilmsInfo;
 
@@ -17,7 +16,7 @@ class FilmsManagerTest {
     private FilmsInfo seventh = new FilmsInfo(7, "Номер один", null, "Comedy", "01/01/2020");
     private FilmsInfo empty = new FilmsInfo();
 
-    public void shouldAddFilm(FilmsManager Repo) {
+    public void shouldAddFilm(AfishaManager Repo) {
         Repo.addFilm(first);
         Repo.addFilm(second);
         Repo.addFilm(third);
@@ -31,7 +30,7 @@ class FilmsManagerTest {
 
     @Test
     public void shouldGetFilmsLessTenFilmsInRepo() {
-        FilmsManager Repo = new FilmsManager();
+        AfishaManager Repo = new AfishaManager();
         shouldAddFilm(Repo);
         FilmsInfo[] actual = Repo.getLastFilms();
         FilmsInfo[] expected = {seventh, sixth, fifth, forth, third, second, first};
@@ -40,7 +39,7 @@ class FilmsManagerTest {
 
     @Test
     public void shouldGetFilmsMoreTenFilmsInRepo() {
-        FilmsManager Repo = new FilmsManager();
+        AfishaManager Repo = new AfishaManager();
         shouldAddFilm(Repo);
         shouldAddFilm(Repo);
         FilmsInfo[] actual = Repo.getLastFilms();
@@ -50,7 +49,7 @@ class FilmsManagerTest {
 
     @Test
     public void shouldGetFilmsInRepoLessLimitFilms() {
-        FilmsManager Repo = new FilmsManager(8);
+        AfishaManager Repo = new AfishaManager(8);
         shouldAddFilm(Repo);
         FilmsInfo[] actual = Repo.getLastFilms();
         FilmsInfo[] expected = {seventh, sixth, fifth, forth, third, second, first};
@@ -59,7 +58,7 @@ class FilmsManagerTest {
 
     @Test
     public void shouldGetFilmsFilmsInRepoMoreLimitFilms() {
-        FilmsManager Repo = new FilmsManager(8);
+        AfishaManager Repo = new AfishaManager(8);
         shouldAddFilm(Repo);
         shouldAddFilm(Repo);
         FilmsInfo[] actual = Repo.getLastFilms();
@@ -68,7 +67,7 @@ class FilmsManagerTest {
     }
 
     public void shouldGetFilmsFilmsInRepoMoreLimitFilmsWithNull() {
-        FilmsManager Repo = new FilmsManager(7);
+        AfishaManager Repo = new AfishaManager(7);
         shouldAddFilm(Repo);
         FilmsInfo[] actual = Repo.getLastFilms();
         FilmsInfo[] expected = {seventh, sixth, fifth, forth, third, second, first};
